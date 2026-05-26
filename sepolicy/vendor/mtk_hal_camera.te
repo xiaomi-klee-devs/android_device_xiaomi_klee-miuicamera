@@ -1,2 +1,1 @@
-# Set mtk_hal_camera to permissive
 permissive mtk_hal_camera;
