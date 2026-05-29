@@ -12,6 +12,8 @@ system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so;MODULE_SUFFIX=
 system_ext/framework/mediatek-framework.jar:system/framework/mediatek-framework.jar;BOOT_JAR
 
 # Camera-configs
+odm/etc/camera/72.png
+odm/etc/camera/73.png
 odm/etc/camera/102_SummerDay.png
 odm/etc/camera/103_Fantasy.png
 odm/etc/camera/104_Meet.png
