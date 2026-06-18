@@ -14791,43 +14791,6 @@ index 25561ea5..72d57e59 100644
 -- 
 2.54.0
 
-From 58ec328e4600246faae684e98117785024949986 Mon Sep 17 00:00:00 2001
-From: kylieeXD <khayloaftck@gmail.com>
-Date: Fri, 5 Jun 2026 16:30:58 +0700
-Subject: [PATCH] Always check if mivi already exist
-
-Skip write if mivi already exist
-
-Signed-off-by: kylieeXD <khayloaftck@gmail.com>
----
- smali/com/xiaomi/cam/watermark/b.smali | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/smali/com/xiaomi/cam/watermark/b.smali b/smali/com/xiaomi/cam/watermark/b.smali
-index 8ce63d31..a84e552c 100644
---- a/smali/com/xiaomi/cam/watermark/b.smali
-+++ b/smali/com/xiaomi/cam/watermark/b.smali
-@@ -2562,10 +2562,17 @@
- 
-     invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
- 
-+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
-+
-+    move-result v1
-+
-+    if-nez v1, :goto_7
-+
-     sget-object v1, LHk/b;->b:Ljava/nio/charset/Charset;
- 
-     invoke-static {v2, v0, v1}, Lmj/j;->E(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;)V
-     :try_end_0
-+
-     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-     .catchall {:try_start_0 .. :try_end_0} :catchall_0
- 
--- 
-2.54.0
-
 From a24e83af3312e7da32538bcb676bc5f552fa2bab Mon Sep 17 00:00:00 2001
 From: kylieeXD <khayloaftck@gmail.com>
 Date: Wed, 17 Jun 2026 06:56:31 +0700
