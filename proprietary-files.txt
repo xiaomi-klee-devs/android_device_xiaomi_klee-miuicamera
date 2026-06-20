@@ -280,6 +280,8 @@ system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V1.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V2.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V4.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys.V3_0-permission.xml
+-system_ext/framework/vendor.xiaomi.hardware.aidlbgservice-V1-java.jar
+-system_ext/framework/vendor.xiaomi.hardware.bgservice-V1.0-java.jar
 -system_ext/framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
 -system_ext/framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
 -system_ext/framework/vendor.xiaomi.hardware.misys-V4.0-java.jar
@@ -292,6 +294,8 @@ system_ext/lib/vendor.xiaomi.hardware.misys@3.0.so
 system_ext/lib64/libmisys_jni.xiaomi.so
 system_ext/lib64/libmqsas.so
 system_ext/lib64/miui.mqsas.native-cpp.so
+system_ext/lib64/vendor.xiaomi.hardware.aidlbgservice-V1-ndk.so;MODULE_SUFFIX=-system_ext
+system_ext/lib64/vendor.xiaomi.hardware.bgservice@1.0.so;MODULE_SUFFIX=-system_ext
 system_ext/lib64/vendor.xiaomi.hardware.misys.common-V3-ndk.so;MODULE_SUFFIX=-system_ext
 system_ext/lib64/vendor.xiaomi.hardware.misys.core-V1-ndk.so;MODULE_SUFFIX=-system_ext
 system_ext/lib64/vendor.xiaomi.hardware.misys@1.0.so

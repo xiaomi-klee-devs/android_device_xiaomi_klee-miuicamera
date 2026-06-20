@@ -31,7 +31,9 @@ lib_fixups: lib_fixups_user_type = {
     ('vendor.mediatek.hardware.camera.isphal@1.0',
      'vendor.mediatek.hardware.camera.isphal-V1-ndk',
      'vendor.xiaomi.hardware.misys.common-V3-ndk',
-     'vendor.xiaomi.hardware.misys.core-V1-ndk'): lib_fixup_system_ext_suffix
+     'vendor.xiaomi.hardware.misys.core-V1-ndk',
+     'vendor.xiaomi.hardware.aidlbgservice-V1-ndk',
+     'vendor.xiaomi.hardware.bgservice@1.0'): lib_fixup_system_ext_suffix
 }
 
 blob_fixups: blob_fixups_user_type = {
