@@ -15110,3 +15110,168 @@ index aa968722..90ecb73d 100644
  .method public static w(ILandroid/content/Context;I)V
 -- 
 2.54.0
+
+From b5f584f7bfcb8c13bab4864dc6c73734bac385ae Mon Sep 17 00:00:00 2001
+From: kylieeXD <khayloaftck@gmail.com>
+Date: Tue, 23 Jun 2026 11:50:28 +0700
+Subject: [PATCH] Add video pro mode
+
+Signed-off-by: kylieeXD <khayloaftck@gmail.com>
+---
+ smali/L1/e.smali                              | 10 ++---
+ .../mode/pro/video/ProVideoModuleEntry.smali  | 40 ++++++++++++++++---
+ smali/d1/a.smali                              | 18 +--------
+ smali/f0/E.smali                              |  2 +-
+ .../modeselector/FragmentModeSelector.smali   | 16 --------
+ 5 files changed, 39 insertions(+), 47 deletions(-)
+
+diff --git a/smali/L1/e.smali b/smali/L1/e.smali
+index d81663c6..62a1f7bd 100644
+--- a/smali/L1/e.smali
++++ b/smali/L1/e.smali
+@@ -5,15 +5,11 @@
+ 
+ # virtual methods
+ .method public final D(Lw3/j;)Z
+-    .locals 0
+-
+-    const/16 p0, 0xb4
+-
+-    invoke-static {p0}, Lcom/android/camera/data/data/l;->w(I)Z
++    .locals 1
+ 
+-    move-result p0
++    const/4 v0, 0x1
+ 
+-    return p0
++    return v0
+ .end method
+ 
+ .method public final g(Lw3/j;)V
+diff --git a/smali/com/android/camera/features/mode/pro/video/ProVideoModuleEntry.smali b/smali/com/android/camera/features/mode/pro/video/ProVideoModuleEntry.smali
+index 3bb332e5..63ba2d87 100644
+--- a/smali/com/android/camera/features/mode/pro/video/ProVideoModuleEntry.smali
++++ b/smali/com/android/camera/features/mode/pro/video/ProVideoModuleEntry.smali
+@@ -70,16 +70,44 @@
+     return p0
+ .end method
+ 
+-.method public support()Z
+-    .locals 0
++.method public getModeItem()Lr2/a;
++    .locals 4
++
++    const v0, 0x7f080579
++
++    const/4 v1, -0x1
++
++    const v2, 0x7f080579
++
++    const v3, 0x7f080579
+ 
+-    sget-boolean p0, Lqb/b;->h:Z
++    filled-new-array {v2, v3, v0, v1}, [I
++
++    move-result-object v0
++
++    const v1, 0x7f14058c
++
++    invoke-virtual {p0, v0, v1}, Lcom/android/camera/module/entry/BaseModuleEntry;->createComponentDataItem([II)Lcom/android/camera/data/data/d;
++
++    move-result-object p0
+ 
+-    sget-object p0, Lqb/b$b;->a:Lqb/b;
++    new-instance v0, Lr2/a$a;
+ 
+-    invoke-virtual {p0}, Lqb/b;->O1()Z
++    invoke-direct {v0}, Lr2/a$a;-><init>()V
++
++    iput-object p0, v0, Lr2/a$a;->a:Lcom/android/camera/data/data/d;
++
++    invoke-virtual {v0}, Lr2/a$a;->a()Lr2/a;
++
++    move-result-object p0
++
++    return-object p0
++.end method
++
++.method public support()Z
++    .locals 0
+ 
+-    const/4 p0, 0x0
++    const/4 p0, 0x1
+ 
+     return p0
+ .end method
+diff --git a/smali/d1/a.smali b/smali/d1/a.smali
+index 1ca9c2b0..388e01cb 100644
+--- a/smali/d1/a.smali
++++ b/smali/d1/a.smali
+@@ -1844,23 +1844,7 @@
+     goto :goto_5
+ 
+     :cond_8
+-    new-instance p0, Ljava/lang/UnsupportedOperationException;
+-
+-    new-instance p1, Ljava/lang/StringBuilder;
+-
+-    const-string v0, "Unsupported Slow Motion Recording: "
+-
+-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+-
+-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+-
+-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object p1
+-
+-    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
++    goto :goto_5
+ 
+     :cond_9
+     invoke-virtual {p0, p1}, Ld1/a;->s(Lw3/j;)V
+diff --git a/smali/f0/E.smali b/smali/f0/E.smali
+index e4a441fd..83cdffb4 100644
+--- a/smali/f0/E.smali
++++ b/smali/f0/E.smali
+@@ -1843,7 +1843,7 @@
+ 
+     move-result-object v7
+ 
+-    const/4 v6, 0x1
++    const/4 v6, 0x0
+ 
+     invoke-virtual {v7, v10, v6}, LUd/a;->m(Ljava/lang/String;Z)LUd/a;
+ 
+diff --git a/smali_classes2/com/android/camera/fragment/modeselector/FragmentModeSelector.smali b/smali_classes2/com/android/camera/fragment/modeselector/FragmentModeSelector.smali
+index 49d89a1b..3f3481a4 100644
+--- a/smali_classes2/com/android/camera/fragment/modeselector/FragmentModeSelector.smali
++++ b/smali_classes2/com/android/camera/fragment/modeselector/FragmentModeSelector.smali
+@@ -4064,22 +4064,6 @@
+ 
+     const/16 v0, 0xa7
+ 
+-    if-ne p1, v0, :cond_3
+-
+-    invoke-static {}, La0/a;->a()Lc0/P0;
+-
+-    move-result-object v0
+-
+-    const-string v4, "pref_camera_from_pro_video_module"
+-
+-    invoke-virtual {v0, v4, v2}, LUd/a;->g(Ljava/lang/String;Z)Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_3
+-
+-    const/16 p1, 0xb4
+-
+     :cond_3
+     const/16 v0, 0xb8
+ 
+-- 
+2.54.0
+
