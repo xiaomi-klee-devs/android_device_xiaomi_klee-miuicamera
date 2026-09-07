@@ -277,7 +277,7 @@ system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V1.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V2.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys-V4.0-java-permission.xml
 system_ext/etc/permissions/vendor.xiaomi.hardware.misys.V3_0-permission.xml
--system_ext/framework/vendor.xiaomi.hardware.aidlbgservice-V1-java.jar
+-system_ext/framework/vendor.xiaomi.hardware.aidlbgservice-V1-java.jar;MAKE_COPY_RULE_ONLY
 -system_ext/framework/vendor.xiaomi.hardware.bgservice-V1.0-java.jar
 -system_ext/framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
 -system_ext/framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
