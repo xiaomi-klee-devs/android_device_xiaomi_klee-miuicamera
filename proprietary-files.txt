@@ -9,8 +9,8 @@ system_ext/lib64/vendor.mediatek.hardware.camera.isphal@1.0.so;MODULE_SUFFIX=-sy
 system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so;MODULE_SUFFIX=-system_ext
 
 # Camera-configs
-odm/etc/camera/72.png|93b82ac8461fdd53a42bce71c108fc9ade0b50ce
-odm/etc/camera/73.png|386fe89d09b4ae5248b7c1ec58226b4afc0ab687
+-odm/etc/camera/72.png
+-odm/etc/camera/73.png
 odm/etc/camera/102_SummerDay.png
 odm/etc/camera/103_Fantasy.png
 odm/etc/camera/104_Meet.png
