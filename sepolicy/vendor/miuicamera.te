@@ -1,0 +1,3 @@
+typeattribute platform_app hal_camera_client;
+allow platform_app hal_camera:memfd_file { read write getattr map };
+allow hal_camera platform_app:memfd_file { read write getattr map };
